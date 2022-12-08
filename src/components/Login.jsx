@@ -4,6 +4,7 @@ import { registerUser } from "../api/auth";
 import { fetchMe } from "../api/auth";
 import Header from "./Header"
 import "./Login.css"
+import CreateNewPost from "./NewPost";
 
 
 
@@ -61,7 +62,7 @@ const Register = () => {
 
             </form>
             
-            
+            {/* <CreateNewPost setToken={token}/> */}
 
         </div>
         </>
