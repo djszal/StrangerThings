@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react"; 
 import AllPosts from "./components/AllPosts";
-import "./App.css";
 import Header from "./components/Header";
-import Login from "./components/Login";
-
+import "./App.css";
+import { Route } from "react-router-dom";
 import { getPosts } from "./api/api";
+import Register from "./components/Login";
+import CreateNewPost from "./components/NewPost";
 
 
 
@@ -13,11 +14,15 @@ import { getPosts } from "./api/api";
 const App = () => {
 
   const [posts, setPosts] = useState([]);
+  
 
 
   useEffect(() => {
     getPosts(setPosts); 
   },[])
+
+
+
 
 
 // console.log("App Page Api ", posts)
@@ -38,7 +43,9 @@ const App = () => {
     </div>
     <div>
       <AllPosts allPosts={posts}/>
-      <Login />
+
+      <Register />
+      <CreateNewPost />
     </div>
    
 

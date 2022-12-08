@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from "react"; 
-import { Link } from 'react-router-dom';
+import { Link, Route, Routes, Outlet, BrowserRouter } from 'react-router-dom';
+import Register from "./Login";
+
 
 import "./Header.css";
+import AllPosts from "./AllPosts";
 
 
 const Header = () => {
@@ -16,11 +19,20 @@ const Header = () => {
 
 
             </div>
-            
+
 
         </div>
 
     );
+}
+
+const ChangePage = () => {
+            <Routes>
+                <Route path="/posts" element={<AllPosts />}></Route>
+                <Route path="/profile" element={<Profile />}></Route>
+                <Route path="/login" element={<Register />}></Route>
+            </Routes>
+
 }
 
 

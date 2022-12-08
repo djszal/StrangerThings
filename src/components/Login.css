@@ -1,0 +1,17 @@
+
+.title {
+    /* background-color: black; */
+    text-align: center;
+
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.welcome-back {
+    text-align: center;
+}

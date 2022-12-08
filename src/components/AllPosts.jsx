@@ -11,8 +11,8 @@ return(
         // console.log(post);
 
 return ( 
-          <div className="posts-box" >
-            <div className="single-post" key={post.author._id}>
+          <div className="posts-box" key={post._id}>
+            <div className="single-post" >
               <h2 className="post-title">{post.title}</h2>
               <p className="post-description">{post.description}</p>
               <p className="post-price">Price: {post.price}</p>
@@ -25,15 +25,7 @@ return (
 </>
 )
 
-
-
 }
-
-
-
-
-
-
 
 
     export default AllPosts;
