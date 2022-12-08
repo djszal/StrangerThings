@@ -37,7 +37,8 @@ const Register = () => {
         <>
         {/* <Header /> */}
         <div className="login">
-            <h3 className="title">Register</h3>
+            <Register setToken={setToken} />
+            {/* <h3 className="title">Register</h3> */}
             <form className="register" onSubmit={async (e)=>{
                 try {
                     e.preventDefault();

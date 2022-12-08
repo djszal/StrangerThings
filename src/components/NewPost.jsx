@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./NewPost.css"
 
 
@@ -18,6 +18,7 @@ console.log("delivery:", delivery)
 
     return (
         <>
+        
         <h1>New Post</h1>
         <form className="new-post">
             <label> 
