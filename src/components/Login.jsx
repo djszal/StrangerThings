@@ -35,7 +35,7 @@ const Register = () => {
 // This then waits for the api to create the token. Then it logs (setItem) the token into the local storage. 
     return (
         <>
-        <Header />
+        {/* <Header /> */}
         <div className="login">
             <h3 className="title">Register</h3>
             <form className="register" onSubmit={async (e)=>{
