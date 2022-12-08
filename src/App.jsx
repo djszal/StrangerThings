@@ -42,10 +42,10 @@ const App = () => {
         </div>
     </div>
     <div>
+      <CreateNewPost />
+      <Register />
       <AllPosts allPosts={posts}/>
 
-      <Register setToken={setToken}/>
-      <CreateNewPost />
     </div>
    
 

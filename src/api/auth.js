@@ -50,13 +50,15 @@ export const fetchMe = async (token)  => {
     }
 }
 
-export const createNewPost = async (token) => {
+
+
+export const createNewPost = async (sameToken, title, description, price, location, willDeliver ) => {
     try {
        const response = await fetch(`${baseUrl}${cohort}/posts`, {
   method: "POST",
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`
+    'Authorization': `Bearer ${sameToken}`
   },
   body: JSON.stringify({
     post: {
@@ -64,10 +66,11 @@ export const createNewPost = async (token) => {
       description, 
       price, 
       willDeliver, 
+      location,
     }
   })
 })
-    const { data } = await response.json();
+    const data  = await response.json();
     console.log("Post data from api ", data)
     return data
     } catch (error) {
