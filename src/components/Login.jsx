@@ -9,7 +9,6 @@ const Login = () => {
     const [newToken, setToken] = useState(localStorage.getItem("token"));
     const [newUser, setUser] = useState([]);
 
-      console.log("yoooooooo", newUser)
 
     useEffect(() => {
         const getMe = async () => {

@@ -16,6 +16,7 @@ const Register = () => {
     const [token, setToken] = useState(localStorage.getItem("token"));
     const [user, setUser] = useState([]);
     
+
     return (
         <>
         {/* <Header /> */}

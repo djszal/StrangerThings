@@ -99,3 +99,21 @@ export const loginUser = async (username,password) => {
         console.error(error); 
     }
 }
+
+
+
+// export const deletePost = async (sameToken, postIdToDelete) => {
+//     try {
+//         const response = await fetch (`${baseUrl}${cohort}/posts/${postIdToDelete}`, {
+//         method: "DELETE",
+//         headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': `Bearer ${sameToken}`,
+//         }
+//         })
+//     const userData = await response.json();
+// } catch (error) {
+//     console.error(error);
+// }
+// }
+
