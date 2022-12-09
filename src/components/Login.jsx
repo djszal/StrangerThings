@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react"; 
 import "./Login.css"
-import { loginUser } from "../api/auth";
+import { loginUser, fetchMe } from "../api/auth";
 
 
 const Login = () => {
@@ -11,17 +11,17 @@ const Login = () => {
 
       console.log("yoooooooo", newUser)
 
-    // useEffect(() => {
-    //     const getMe = async () => {
-    //       const data = await fetchMe(newToken); 
-    //     //   console.log("show me user data",data)
-    //     setUser(data);
-    //     // console.log(user)
-    //     }
-    //     if (newToken) {
-    //     getMe();
-    //     }
-    //   },[newToken]);
+    useEffect(() => {
+        const getMe = async () => {
+          const data = await fetchMe(newToken); 
+        //   console.log("show me user data",data)
+        setUser(data);
+        // console.log(user)
+        }
+        if (newToken) {
+        getMe();
+        }
+      },[newToken]);
     
 
     return (
@@ -32,8 +32,8 @@ const Login = () => {
             <form className="login" onSubmit={async (e)=>{
                 try {
                     e.preventDefault();
-
                     const newToken = await loginUser(usernameLogin, passwordLogin); 
+                    setToken(newToken)
                     localStorage.setItem("token", newToken);
                     // console.log("Local Storage", localStorage.getItem("token"));
                 } catch (error) {
@@ -45,7 +45,7 @@ const Login = () => {
                 <input value={usernameLogin} type="text" placeholder="username" minLength={3} onChange={(e)=>setUsernameLogin(e.target.value)}></input>
                 <input value={passwordLogin} type="password" placeholder="password" minLength={3} onChange={(e)=>setPasswordLogin(e.target.value)}></input>
                 <button type="submit">Login</button>
-                <h3 className="welcome-back">Hello, {usernameLogin}</h3>
+                <h3 className="welcome-back">Hello, {newUser.username}</h3>
 
             </form>
             

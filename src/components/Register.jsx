@@ -58,7 +58,6 @@ const Register = () => {
                 <input value={username} type="text" placeholder="username" minLength={3} onChange={(e)=>setUsername(e.target.value)}></input>
                 <input value={password} type="password" placeholder="password" minLength={3} onChange={(e)=>setPassword(e.target.value)}></input>
                 <button type="submit">Register</button>
-                <h3 className="welcome-back">Hello, {user?.username}</h3>
 
             </form>
             
