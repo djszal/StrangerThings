@@ -9,4 +9,10 @@
     flex-direction: column;
     margin-left: 10px;
     margin-right: 10px;
+    border: 3px black solid;
+}
+
+.create-new-post-button {
+    width: 50%;
+    /* align-self: center; */
 }
