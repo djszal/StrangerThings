@@ -44,8 +44,7 @@ const App = () => {
     <div>
       <CreateNewPost />
       <Register />
-      <AllPosts allPosts={posts}/>
-
+``      <AllPosts allPosts={posts}/>
     </div>
    
 
