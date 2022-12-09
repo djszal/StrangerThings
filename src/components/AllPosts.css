@@ -15,3 +15,13 @@
     color: #023047;
     border-radius: 20px;
   }
+
+  .post-buttons {
+    margin-left: 10px;
+  }
+
+  .delete-button {
+    color: red;
+    border-color: red;
+    font-weight: bold ;
+  }

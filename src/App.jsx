@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AllPosts from "./components/AllPosts";
 import Header from "./components/Header";
 import "./App.css";
-import { Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { getPosts } from "./api/api";
 import Register from "./components/Register";
 import CreateNewPost from "./components/NewPost";
@@ -31,22 +31,19 @@ const App = () => {
   return (
     <>
       <Header />
-
-      <div className="posts">
-        <h1>Posts</h1>
-        <div className="new-post-search-bar">
-          <div className="search-bar">
-            <input type='search' name='search' />
-            <button type='submit' className="search-button">Search Posts</button>
-          </div>
-          <button type='submit' className="new-post-button">Create New Post</button>
-        </div>
-      </div>
       <div>
-        <CreateNewPost />
+        {/* <CreateNewPost />
         <Login />
         <Register />
-        <AllPosts allPosts={posts} />
+        <AllPosts allPosts={posts} /> */}
+        <Routes>
+          <Route exact path="/" element={<AllPosts allPosts={posts} />}></Route>
+          {/* <Route path="/profile" element={<Profile />}></Route> */}
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/newpost" element={<CreateNewPost allPosts={posts}/>}></Route>
+          <Route path="/register" element={<Register />}></Route>
+        </Routes>
+
       </div>
 
 
