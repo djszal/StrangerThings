@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import "./App.css";
 import { Route } from "react-router-dom";
 import { getPosts } from "./api/api";
-import Register from "./components/Login";
+import Register from "./components/Register";
 import CreateNewPost from "./components/NewPost";
 
 
@@ -44,7 +44,7 @@ const App = () => {
     <div>
       <CreateNewPost />
       <Register />
-``      <AllPosts allPosts={posts}/>
+      <AllPosts allPosts={posts}/>
     </div>
    
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./NewPost.css"
-import Register from "./Login";
+import Register from "./Register";
 import { createNewPost } from "../api/auth";
 
 

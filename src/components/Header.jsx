@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Link, Route, Routes, Outlet, BrowserRouter } from 'react-router-dom';
-import Register from "./Login";
+import Register from "./Register";
 
 
 import "./Header.css";
