@@ -15,7 +15,7 @@ import Login from "./components/Login";
 const App = () => {
 
   const [posts, setPosts] = useState([]);
-
+  const [postId, setPostId] = useState(null);
 
 
   useEffect(() => {

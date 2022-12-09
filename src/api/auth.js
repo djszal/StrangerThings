@@ -102,18 +102,19 @@ export const loginUser = async (username,password) => {
 
 
 
-// export const deletePost = async (sameToken, postIdToDelete) => {
-//     try {
-//         const response = await fetch (`${baseUrl}${cohort}/posts/${postIdToDelete}`, {
-//         method: "DELETE",
-//         headers: {
-//         'Content-Type': 'application/json',
-//         'Authorization': `Bearer ${sameToken}`,
-//         }
-//         })
-//     const userData = await response.json();
-// } catch (error) {
-//     console.error(error);
-// }
-// }
+export const deletePost = async (sameToken, postIdToDelete) => {
+    try {
+        const response = await fetch (`${baseUrl}${cohort}/posts/${postIdToDelete}`, {
+        method: "DELETE",
+        headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${sameToken}`,
+        }
+        })
+    const reply = await response.json();
+    return reply;
+} catch (error) {
+    console.error(error);
+}
+}
 

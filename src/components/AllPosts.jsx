@@ -7,12 +7,8 @@ import "./AllPosts.css";
 const AllPosts = (props) => { 
 // console.log('propssssss', props)
 const[token,setToken] = useState(localStorage.getItem('token'))
-  // const handleDelete = async () =>{
 
-  useEffect(() => {
-  const handleDelete = async (postIdToDelete) => {
-      const response = await fetch(token,postIdToDelete)
-  }
+
   
   return(
     <>
