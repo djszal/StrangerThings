@@ -2,14 +2,17 @@ import { useState } from "react";
 import "./NewPost.css"
 import Register from "./Register";
 import { createNewPost } from "../api/auth";
+import { Link } from "react-router-dom";
 
 
-const CreateNewPost = (setToken) => {
+const CreateNewPost = (props) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [location, setLocation] = useState("");
     const [willDeliver, setDelivery] = useState(Boolean);
+
+console.log("new post posts", props);
 
     // console.log("title:", title)
     // console.log("delivery:", willDeliver)
@@ -55,8 +58,9 @@ const CreateNewPost = (setToken) => {
                     Willing to Deliver?
                     <input type="checkbox" name="name" onChange={(e) => setDelivery(e.target.value)} />
                 </label>
-                <button type="submit" className="create-new-post-button">Create New Post</button>
-
+                <Link to="/">
+                    <button type="submit" className="create-new-post-button">Create New Post</button>
+                </Link>
 
             </form>
 
