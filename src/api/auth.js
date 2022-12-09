@@ -78,3 +78,24 @@ export const createNewPost = async (sameToken, title, description, price, locati
     }
 }
 
+export const loginUser = async (username,password) => {
+    try {
+        const response = await fetch(`${baseUrl}${cohort}/users/login`, {
+  method: "POST",
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    user: {
+      username,
+      password,
+    }
+    })
+})
+    const usertoken  = (await response.json()).data.token;
+    console.log("userToken ", usertoken);
+    return usertoken;
+    } catch (error) {
+        console.error(error); 
+    }
+}

@@ -1,10 +1,18 @@
 
+.title {
+    /* background-color: black; */
+    text-align: center;
 
+}
 
-.login {
+.register {
     display: flex;
     flex-direction: column;
     margin-left: 20%;
     margin-right: 20%;
     border: 5px black solid;
+}
+
+.welcome-back {
+    text-align: center;
 }
