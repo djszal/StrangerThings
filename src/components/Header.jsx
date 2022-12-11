@@ -17,26 +17,10 @@ const Header = () => {
     }
 
     useEffect(() => {
-
+        setToken()
     }, [newToken]);
 
-    const [newToken, setToken] = useState(localStorage.getItem("token"));
-
-    const logout = () => {
-        localStorage.removeItem("token");
-        // remove the token
-    }
-
-    useEffect(() => {
-
-    }, [newToken]);
-
-        const[newToken, setToken] = useState(localStorage.getItem("token"));
-
-        const Logout = () => {
-            localStorage.removeItem("token");
-        }
-    return (
+        return (
         <div className="header">
             <h3>Stranger's Things</h3>
             <div className="navbar">
