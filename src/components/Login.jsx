@@ -47,7 +47,7 @@ const Login = () => {
                     <input value={usernameLogin} type="text" placeholder="username" minLength={3} onChange={(e) => setUsernameLogin(e.target.value)}></input>
                     <input value={passwordLogin} type="password" placeholder="password" minLength={3} onChange={(e) => setPasswordLogin(e.target.value)}></input>
                     <button type="submit">Login</button>
-                    <h3 className="welcome-back">Hello, {newUser.username}</h3>
+                    {/* <h3 className="welcome-back">Hello, {newUser.username}</h3> */}
                     <Link to="/register">Don't have an account? Register Here</Link>
                 </form>
 

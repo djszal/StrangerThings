@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { deletePost } from "../api/auth";
 import Message from "./Message";
-import { Router, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./AllPosts.css";
 import { getPosts } from "../api/api";
 
