@@ -29,7 +29,7 @@ const CreateNewPost = ({ posts, setPosts }) => {
                 const result = await createNewPost(sameToken, title, description, price, location, willDeliver);
 
 
-                const data = await result.data();
+                const data = await result.data;
                 console.log("Show me result", result);
                 // console.log("Show me data", data.posts);
                 // const abc = [...posts, data]
