@@ -9,6 +9,28 @@ import AllPosts from "./AllPosts";
 
 const Header = () => {
 
+    const [newToken, setToken] = useState(localStorage.getItem("token"));
+
+    const logout = () => {
+        localStorage.removeItem("token");
+        // remove the token
+    }
+
+    useEffect(() => {
+
+    }, [newToken]);
+
+    const [newToken, setToken] = useState(localStorage.getItem("token"));
+
+    const logout = () => {
+        localStorage.removeItem("token");
+        // remove the token
+    }
+
+    useEffect(() => {
+
+    }, [newToken]);
+
         const[newToken, setToken] = useState(localStorage.getItem("token"));
 
         const Logout = () => {
@@ -21,9 +43,9 @@ const Header = () => {
                 <Link to={'/'} className="nav-links">Posts</Link>
                 <Link to={'/profile'} className="nav-links">Profile</Link>
                 {!newToken ? (
-                <Link to={'/login'} className="nav-links">Login</Link> ) :
-                (<Link to={'/'} className="nav-links" onClickCapture={Logout}>Logout</Link>
-                )}                
+                    <Link to={'/login'} className="nav-links">Login</Link>) : (
+                    <Link to={'/'} className="nav-links" onClickCapture={logout}>Logout</Link>)
+                }
                 <Link to={'/newpost'} className="nav-links">New Posts</Link>
             </div>
 
