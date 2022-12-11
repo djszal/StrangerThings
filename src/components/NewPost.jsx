@@ -32,9 +32,9 @@ const CreateNewPost = ({ posts, setPosts }) => {
                 const data = await result.data
                 console.log("Show me result", result);
                 // console.log("Show me data", data.posts);
-                const abc = [...posts, data]
-                // setPosts([...posts, data]);
-                console.log("new data", abc)
+                // const abc = [...posts, data]
+                setPosts([...posts, data]);
+                // console.log("new data", abc)
                 navigate('/');
             }
             }>
@@ -55,7 +55,7 @@ const CreateNewPost = ({ posts, setPosts }) => {
                     <input type="text" name="location" onChange={(e) => setLocation(e.target.value)} />
                 </label>
                 <label>
-                    Willing to Deliver?
+                    Willing to Deliver? Won't Create Post if clicked.
                     <input type="checkbox" name="name" onChange={(e) => setDelivery(e.target.value)} />
                 </label>
                 {/* <Link to="/"> */}

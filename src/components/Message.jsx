@@ -19,7 +19,7 @@ const Message = ({ props }) => {
                             <input type="text" name="title" onChange={(e) => setTitle(e.target.value)} />
                         </label>
                         <label>
-                            Description:
+                            Message:
                             <input type="text" name="description" onChange={(e) => setDescription(e.target.value)} />
                         </label>
                         <button type="submit" className="send-message-button">Send Message</button>
