@@ -1,74 +1,78 @@
 import React, { useState, useEffect } from "react";
 import { deletePost } from "../api/auth";
-
+import Message from "./Message";
+import { Router, Routes, Route, Link } from "react-router-dom";
 import "./AllPosts.css";
+import { getPosts } from "../api/api";
 
-const AllPosts = (props) => {
-  console.log('propssssss', props)
+const AllPosts = () => {
+  // console.log('propssssss', allPosts)
 
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [updated, updatedPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
+
+  useEffect(() => {
+    getPosts(setPosts);
+  }, [updated]);
+  // above. whenever 'updated' changes, the useEffect runs. 'updated' doesn't run unless the delete button is clicked.
+
+  // console.log("test", updated)
 
   const handleDelete = async (postIdToDelete) => {
     // console.log('yoooo', postIdToDelete); 
     const response = await deletePost(token, postIdToDelete)
-    console.log("heyyyyyy ", response)
+    // console.log("heyyyyyy ", response)
     if (response) {
-      const newPosts = props.allPosts.filter(post => post._id !== postIdToDelete);
+      const newPosts = posts.filter(post => post._id !== postIdToDelete);
       updatedPosts(newPosts)
     }
   }
-
-  //   useEffect(() => {
-
-  // // if (token) {
-  // handleDelete();
-
-  // },[]);
-
 
 
 
   return (
     <>
+      <div className="posts">
+        <h1>Post</h1>
 
-    <div className="posts">
-      <h1>Post</h1>
-  
-  <div className="new-post-search-bar">
-    <div className="search-bar">
-      <input type='search' name='search' />
-      <button type='submit' className="search-button">Search Posts</button>
-    </div>
-    <button type='submit' className="new-post-button">Create New Post</button>
-  </div>
-</div>
-      {props.allPosts.map((post) => {
+        <div className="new-post-search-bar">
+          <div className="search-bar">
+            <input type='search' name='search' />
+            <button type='submit' className="search-button">Search Posts</button>
+          </div>
+          <button type='submit' className="new-post-button">Create New Post</button>
+        </div>
+      </div>
+      {posts.map((post) => {
         // console.log(post);
 
         return (
           <div className="title">
-              <div className="posts-box" key={post._id}>
 
-              <div className="single-post" >
-                <h2 className="post-title">{post.title}</h2>
-                <p className="post-description">{post.description}</p>
-                <p className="post-price">Price: {post.price}</p>
-                <p className="post-seller">Seller: {post.author.username}</p>
-                <p className="post-location">Location: {post.location}</p>
-              </div>
-              <div className="post-buttons">
-                <button type="submit">Message</button>
-                <button type="submit">Edit</button>
-                <button className="delete-button" type="submit" onClick={() => handleDelete(post._id)}>Delete</button>
-              </div>
+            <div className="single-post" key={post._id}>
+              <h2 className="post-title">{post.title}</h2>
+              <p className="post-description">{post.description}</p>
+              <p className="post-price">Price: {post.price}</p>
+              <p className="post-seller">Seller: {post.author.username}</p>
+              <p className="post-location">Location: {post.location}</p>
+            </div>
+            <div className="post-buttons">
+
+              <Link to={`/message`} className="nav-links"><button type="submit">Message</button></Link>
+              <button type="submit" className="edit-button">Edit</button>
+              <button type="submit" className="delete-button" onClick={(() => handleDelete(post._id))}>Delete</button>
+
             </div>
           </div>
-        );
+
+        )
       })}
     </>
   )
+
+
 
 }
 
