@@ -8,11 +8,9 @@ import "./Header.css";
 const Header = () => {
 
     const [newToken, setToken] = useState(localStorage.getItem("token"));
-    const navigate = useNavigate();
 
     const logout = () => {
         localStorage.removeItem("token");
-        navigate("/")
     }
 
     useEffect(() => {
@@ -29,7 +27,6 @@ const Header = () => {
                     <Link to={'/login'} className="nav-links" >Login</Link>) : (
                     <Link to={'/login'} className="nav-links" onClickCapture={logout}>Logout</Link>)
                 }
-                <Link to={'/newpost'} className="nav-links">New Posts</Link>
             </div>
         </div>
     );

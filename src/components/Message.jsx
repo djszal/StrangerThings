@@ -1,6 +1,6 @@
 import React from "react"
 import { useState } from "react"
-import { messageUser } from "../api/auth";
+// import { messageUser } from "../api/auth";
 import { useNavigate } from "react-router-dom";
 
 const Message = ({ postId }) => {
