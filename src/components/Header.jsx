@@ -1,24 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Link, Route, Routes, Outlet, BrowserRouter } from 'react-router-dom';
-import Register from "./Register";
-
-
+import { Link, Route, Routes, Outlet, BrowserRouter, useNavigate } from 'react-router-dom';
 import "./Header.css";
-import AllPosts from "./AllPosts";
-
 
 const Header = () => {
 
     const [newToken, setToken] = useState(localStorage.getItem("token"));
+    const navigate = useNavigate();
 
     const logout = () => {
         localStorage.removeItem("token");
-        // remove the token
+        navigate("/")
     }
-
-    useEffect(() => {
-
-    }, [newToken]);
 
     return (
         <div className="header">
@@ -30,16 +22,10 @@ const Header = () => {
                     <Link to={'/login'} className="nav-links">Login</Link>) : (
                     <Link to={'/'} className="nav-links" onClickCapture={logout}>Logout</Link>)
                 }
-                <Link to={'/newpost'} className="nav-links">New Posts</Link>
             </div>
-
-
         </div>
-
     );
 }
-
-
 
 
 export default Header;
