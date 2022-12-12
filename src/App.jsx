@@ -12,6 +12,7 @@ import Login from "./components/Login";
 
 
 
+
 const App = () => {
 
   const [posts, setPosts] = useState([]);
@@ -22,7 +23,7 @@ const App = () => {
     getPosts(setPosts);
   }, [])
 
-
+  
 
 
 
@@ -31,11 +32,12 @@ const App = () => {
   return (
     <>
       <Header />
-      <div>
+      <div className="App">
         {/* <CreateNewPost />
         <Login />
         <Register />
         <AllPosts allPosts={posts} /> */}
+        {/* <SearchBar placeholder="What are you looking for?"/> */}
         <Routes>
           <Route exact path="/" element={<AllPosts allPosts={posts} />}></Route>
           {/* <Route path="/profile" element={<Profile />}></Route> */}
@@ -43,7 +45,6 @@ const App = () => {
           <Route path="/newpost" element={<CreateNewPost allPosts={posts}/>}></Route>
           <Route path="/register" element={<Register />}></Route>
         </Routes>
-
       </div>
 
 

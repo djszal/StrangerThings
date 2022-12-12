@@ -19,11 +19,11 @@ const Login = () => {
             //   console.log("show me user data",data)
             setUser(data);
             // console.log(user)
-        }
-        if (newToken) {
             getMe();
         }
     }, [newToken]);
+
+
 
 
     return (
@@ -35,7 +35,7 @@ const Login = () => {
                     try {
                         e.preventDefault();
                         const newToken = await loginUser(usernameLogin, passwordLogin);
-                        setToken(newToken)
+                        setToken(newToken);
                         localStorage.setItem("token", newToken);
                         // console.log("Local Storage", localStorage.getItem("token"));
                         navigate('/');
@@ -44,9 +44,11 @@ const Login = () => {
                     }
 
                 }}>
-                    <input value={usernameLogin} type="text" placeholder="username" minLength={3} onChange={(e) => setUsernameLogin(e.target.value)}></input>
+                    <input value={usernameLogin} type="text" placeholder="username" minLength={3} onChange={(e) => setUsernameLogin(e.target.value)}></input> 
                     <input value={passwordLogin} type="password" placeholder="password" minLength={3} onChange={(e) => setPasswordLogin(e.target.value)}></input>
-                    <button type="submit">Login</button>
+                    
+                    <button type="submit" >Login</button>
+                    
                     {/* <h3 className="welcome-back">Hello, {newUser.username}</h3> */}
                     <Link to="/register">Don't have an account? Register Here</Link>
                 </form>

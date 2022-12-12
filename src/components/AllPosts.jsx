@@ -5,6 +5,7 @@ import { Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 import "./AllPosts.css";
 import { getPosts } from "../api/api";
 
+
 const AllPosts = () => {
 
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -19,27 +20,20 @@ const AllPosts = () => {
   useEffect(() => {
     getPosts(setPosts);
   }, [updated]);
-  // above. whenever 'updated' changes, the useEffect runs. 'updated' doesn't run unless the delete button is clicked.
-
-  // console.log("test", updated)
 
   const handleDelete = async (postIdToDelete) => {
-    // console.log('yoooo', postIdToDelete); 
+
     const response = await deletePost(token, postIdToDelete)
-    // console.log("heyyyyyy ", response)
+
     if (response) {
       const newPosts = posts.filter(post => post._id !== postIdToDelete);
       updatedPosts(newPosts)
     }
   }
 
-  const handleMessage = (postIdToMessage) => {
-    // navigate(`/message/${postIdToMessage}`)
-    console.log("hey")
+  // const handleMessage = (postIdToMessage) => {
 
-
-
-  }
+  // }
 
 
 
@@ -53,7 +47,9 @@ const AllPosts = () => {
             <input type='search' name='search' />
             <button type='submit' className="search-button">Search Posts</button>
           </div>
-          <button type='submit' className="new-post-button">Create New Post</button>
+            <Link to="/newpost">
+            <button type='submit' className="new-post-button">Create New Post</button>
+            </Link>
         </div>
       </div>
       {posts.map((post) => {
@@ -72,7 +68,9 @@ const AllPosts = () => {
             <div className="post-buttons">
 
               {/* <Link to={`/message`} className="nav-links"><button type="submit">Message</button></Link> */}
-              <button type="submit" className="message-button" onClick={(() => handleMessage(post._id))}>Message</button>
+              <button type="submit" className="message-button" 
+              //onClick={(() => handleMessage(post._id))}
+              >Message</button>
               <button type="submit" className="edit-button">Edit</button>
               <button type="submit" className="delete-button" onClick={(() => handleDelete(post._id))}>Delete</button>
             </div>
