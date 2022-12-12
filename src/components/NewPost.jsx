@@ -1,15 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import "./NewPost.css"
-import Register from "./Register";
 import { createNewPost } from "../api/auth";
-import { Link, useNavigate } from "react-router-dom";
-import { getPosts } from "../api/api";
-import App from "../App";
+import { useNavigate } from "react-router-dom";
 
 const CreateNewPost = ({ posts, setPosts }) => {
-
-    // console.log("hyyyyyy", posts)
-    // console.log("yooooooo", setPosts)
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -19,22 +13,14 @@ const CreateNewPost = ({ posts, setPosts }) => {
     const navigate = useNavigate();
     const sameToken = localStorage.getItem("token")
 
-
     return (
         <>
             <h1>New Post</h1>
             <form className="new-post" onSubmit={async (e) => {
                 e.preventDefault();
-
                 const result = await createNewPost(sameToken, title, description, price, location, willDeliver);
-
-
-                const data = await result.data;
-                console.log("Show me result", result);
-                // console.log("Show me data", data.posts);
-                // const abc = [...posts, data]
-                // // setPosts([...posts, data]);
-                // console.log("new data", abc)
+                const data = await result.data
+                setPosts([...posts, data]);
                 navigate('/');
             }
             }>
@@ -58,18 +44,10 @@ const CreateNewPost = ({ posts, setPosts }) => {
                     Willing to Deliver? Won't Create Post if clicked.
                     <input type="checkbox" name="name" onChange={(e) => setDelivery(e.target.value)} />
                 </label>
-                {/* <Link to="/"> */}
                 <button type="submit" className="create-new-post-button">Create New Post</button>
-                {/* </Link> */}
-
             </form>
-
         </>
-
     )
-
-
-
 }
 
 export default CreateNewPost; 
