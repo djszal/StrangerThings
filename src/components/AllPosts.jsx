@@ -45,9 +45,11 @@ console.log("posts", posts)
             <input value={search} type='search' name='search' onChange={(e) => setSearch(e.target.value)} />
             <button type='submit' className="search-button">Search Posts</button>
           </div>
+          {token ?
           <Link to="/newpost">
             <button type='submit' className="new-post-button">Create New Post</button>
           </Link>
+          :''}
         </div>
         <div className="message-box">
           <Message postId={postId} />
