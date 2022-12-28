@@ -7,8 +7,8 @@ import { getPosts } from "./api/api";
 import Register from "./components/Register";
 import CreateNewPost from "./components/NewPost";
 import Login from "./components/Login";
-
-
+import Profile from "./components/Profile";
+import Message from "./components/Message";
 
 
 
@@ -16,49 +16,28 @@ const App = () => {
 
   const [posts, setPosts] = useState([]);
 
-
-
   useEffect(() => {
     getPosts(setPosts);
-  }, [])
-
-
-
-
-
-  // console.log("App Page Api ", posts)
+  }, []);
 
   return (
     <>
       <Header />
       <div>
-        {/* <CreateNewPost />
-        <Login />
-        <Register />
-        <AllPosts allPosts={posts} /> */}
         <Routes>
-          <Route exact path="/" element={<AllPosts allPosts={posts} />}></Route>
-          {/* <Route path="/profile" element={<Profile />}></Route> */}
+          <Route exact path="/" element={<AllPosts />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/newpost" element={<CreateNewPost allPosts={posts}/>}></Route>
+          <Route path="/newpost" element={<CreateNewPost posts={posts} setPosts={setPosts} />}></Route>
           <Route path="/register" element={<Register />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/message" element={<Message />}></Route>
         </Routes>
-
       </div>
-
-
-
     </>
-
   );
-
 
 }
 
 export default App;
 
-/* - This exports to main.jsx. Lots of functionality to go here. useEffects, useStates, call components.  
 
-
-
-*/
