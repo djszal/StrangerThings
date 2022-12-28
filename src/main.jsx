@@ -6,11 +6,8 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   </BrowserRouter>
 )
-
-// What does .StrictMode do?
-// This should be left alone for the most part, I think...

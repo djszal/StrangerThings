@@ -13,7 +13,7 @@ const AllPosts = () => {
   const [search, setSearch] = useState("")
   const [postId, setPostId] = useState("")
 
-
+console.log("posts", posts)
   useEffect(() => {
     getPosts(setPosts);
   }, [updated]);
@@ -47,9 +47,11 @@ const AllPosts = () => {
             <input value={search} type='search' name='search' onChange={(e) => setSearch(e.target.value)} />
             <button type='submit' className="search-button">Search Posts</button>
           </div>
+          {token ?
           <Link to="/newpost">
             <button type='submit' className="new-post-button">Create New Post</button>
           </Link>
+          :''}
         </div>
         <div className="message-box">
           <Message postId={postId} />
@@ -65,12 +67,17 @@ const AllPosts = () => {
               <p className="post-price">Price: {post.price}</p>
               <p className="post-seller">Seller: {post.author.username}</p>
               <p className="post-location">Location: {post.location}</p>
+              {/* {console.log("username", post.author.username)} */}
             </div>
+            {token ? 
             <div className="post-buttons">
               <button type="submit" className="message-button" onClick={(() => setPostId(post._id))}>Message</button>
+              {post.isAuthor === true ?
               <button type="submit" className="edit-button">Edit</button>
+              : ''}
               <button type="submit" className="delete-button" onClick={(() => handleDelete(post._id))}>Delete</button>
             </div>
+            : ''}
           </div>
         )
       })}

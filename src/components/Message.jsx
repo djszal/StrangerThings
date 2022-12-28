@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 const Message = ({ postId }) => {
-
+console.log("messagessss", postId)
     const [content, setContent] = useState("");
     const [token, setToken] = useState(localStorage.getItem("token"));
     const navigate = useNavigate()
