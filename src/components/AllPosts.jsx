@@ -55,11 +55,11 @@ const AllPosts = () => {
           <Message postId={postId} />
         </div>
       </div>
-      {posts.map((post) => {
+      {posts.map((post, index) => {
 
         return (
-          <div className="post-block">
-            <div className="single-post" key={post._id}>
+          <div className="post-block" key={index}>
+            <div className="single-post">
               <h2 className="post-title">{post.title}</h2>
               <p className="post-description">{post.description}</p>
               <p className="post-price">Price: {post.price}</p>

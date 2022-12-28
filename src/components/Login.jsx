@@ -6,19 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
     const [usernameLogin, setUsernameLogin] = useState("");
     const [passwordLogin, setPasswordLogin] = useState("");
-    const [newToken, setToken] = useState(localStorage.getItem("token"));
-    const [newUser, setUser] = useState([]);
+    const [token, setToken] = useState(localStorage.getItem("token"));
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const getMe = async () => {
-            const data = await fetchMe(newToken);
-            setUser(data);
-        }
-        if (newToken) {
-            getMe();
-        }
-    }, [newToken]);
 
 
     return (
@@ -29,6 +18,7 @@ const Login = () => {
                     try {
                         e.preventDefault();
                         const newToken = await loginUser(usernameLogin, passwordLogin);
+                        console.log("this is my new token", newToken)
                         setToken(newToken);
                         localStorage.setItem("token", newToken);
                         { newToken ? (navigate('/')) : console.log("No Token!!") };

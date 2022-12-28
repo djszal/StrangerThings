@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const CreateNewPost = ({ posts, setPosts }) => {
 
+    console.log("looking for posts", posts)
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
