@@ -13,7 +13,7 @@ const AllPosts = () => {
   const [search, setSearch] = useState("")
   const [postId, setPostId] = useState("")
 
-
+console.log("posts", posts)
   useEffect(() => {
     getPosts(setPosts);
   }, [updated]);
@@ -56,19 +56,24 @@ const AllPosts = () => {
       {posts.map((post) => {
 
         return (
-          <div className="post-block">
-            <div className="single-post" key={post._id}>
+          <div className="post-block" key={post._id}>
+            <div className="single-post">
               <h2 className="post-title">{post.title}</h2>
               <p className="post-description">{post.description}</p>
               <p className="post-price">Price: {post.price}</p>
               <p className="post-seller">Seller: {post.author.username}</p>
               <p className="post-location">Location: {post.location}</p>
+              {/* {console.log("username", post.author.username)} */}
             </div>
+            {token ? 
             <div className="post-buttons">
               <button type="submit" className="message-button" onClick={(() => setPostId(post._id))}>Message</button>
+              {post.isAuthor === true ?
               <button type="submit" className="edit-button">Edit</button>
+              : ''}
               <button type="submit" className="delete-button" onClick={(() => handleDelete(post._id))}>Delete</button>
             </div>
+            : ''}
           </div>
         )
       })}

@@ -20,7 +20,8 @@ const CreateNewPost = ({ posts, setPosts }) => {
                 e.preventDefault();
                 const result = await createNewPost(sameToken, title, description, price, location, willDeliver);
                 const data = await result.data
-                setPosts([...posts, data]);
+                console.log("new post data", data)
+                setPosts([data, ...posts]);
                 navigate('/');
             }
             }>
