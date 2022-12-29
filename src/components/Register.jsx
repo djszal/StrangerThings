@@ -10,6 +10,15 @@ const Register = () => {
     const [user, setUser] = useState([]);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const getMe = async () => {
+            const data = await fetchMe(token);
+            setUser(data);
+        }
+        if (token) {
+            getMe();
+        }
+    }, [token]);
     return (
         <>
             <div className="login">

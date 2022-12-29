@@ -1,6 +1,6 @@
 import React from "react"
 import { useState } from "react"
-// import { messageUser } from "../api/auth";
+import { messageUser, fetchMe } from "../api/auth";
 import { useNavigate } from "react-router-dom";
 
 const Message = ({ postId }) => {
@@ -8,6 +8,8 @@ console.log("messagessss", postId)
     const [content, setContent] = useState("");
     const [token, setToken] = useState(localStorage.getItem("token"));
     const navigate = useNavigate()
+
+    
 
     return (
         <>
