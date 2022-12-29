@@ -6,7 +6,7 @@ import "./Profile.css"
 const Profile = ({pizza, userData}) => {
     // console.log("token", pizza)
     // const [userData, setUserData] = useState({});
-    // console.log("Profile Data", userData)
+    console.log("Profile Data", userData.messages)
     
 
     return (
@@ -15,17 +15,31 @@ const Profile = ({pizza, userData}) => {
             <h1>Welcome Back, {userData.username}</h1>
             : <h2>Please Login to View Profile</h2>}
             <h1>Messages to Me</h1>
-            <p>Didn't get to this</p>
+            {Object.keys(userData).length !== 0 ?
+            userData.messages.map((message, index) => {
+                return (
+                    <div className="message-block" key={index}>
+                    {message.fromUser.username !== userData.username ? 
+                        <div className="single-message">
+                            <p className="post-message">Message: {message.content}</p>
+                            <p className="post-title-message">Sender: {message.fromUser.username}</p>
+                            <p className="post-title-message">Received from Post Title: {message.post.title}</p>
+                        </div>
+                        : ""}
+                    </div>
+                )}) : <p>If seeing this, refesh browser or login</p>}
             <h1>Messages from Me</h1>
             {Object.keys(userData).length !== 0 ?
             userData.messages.map((message, index) => {
+                {console.log("message", message.fromUser.username)}
             return (
                 <div className="message-block" key={index}>
+                {message.fromUser.username === userData.username ? 
                     <div className="single-message">
                         <p className="post-message">Message: {message.content}</p>
-                        <p className="post-title-message">Message Sent to: {message.post.title}</p>
-
+                        <p className="post-title-message">Message Sent to Post Title: {message.post.title}</p>
                     </div>
+                    : ""}
                 </div>
             )}) : <p>If seeing this, refesh browser or login</p>} 
         </>
