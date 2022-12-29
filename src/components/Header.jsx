@@ -9,6 +9,7 @@ const Header = () => {
 
     const logout = () => {
         localStorage.removeItem("token");
+        console.log("User is logged out")
         navigate("/")
     }
 
@@ -20,7 +21,7 @@ const Header = () => {
                 <Link to={'/profile'} className="nav-links">Profile</Link>
                 {!newToken ? (
                     <Link to={'/login'} className="nav-links">Login</Link>) : (
-                    <Link to={'/'} className="nav-links" onClickCapture={logout}>Logout</Link>)
+                    <Link to={'/'} className="nav-links" onClick={logout}>Logout</Link>)
                 }
             </div>
         </div>
