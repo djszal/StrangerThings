@@ -3,7 +3,7 @@ import { deletePost, fetchMe } from "../api/auth";
 import Message from "./Message";
 import "./AllPosts.css";
 import { getPosts } from "../api/api";
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 
 const AllPosts = ({userData}) => {
 
@@ -13,21 +13,15 @@ const AllPosts = ({userData}) => {
   const [search, setSearch] = useState("")
   const [postId, setPostId] = useState("")
 
-console.log("posts", posts)
-console.log("userzeeeee data", userData)
+// console.log("posts", posts)
+// console.log("userzeeeee data", userData)
+console.log("post ID", postId)
   useEffect(() => {
     getPosts(setPosts);
   }, [updated]);
 
   
 
-  // const handleSearch = async (search) => {
-  //   const response = await getPosts()
-  //   if (response) {
-  //     const filterPosts = posts.filter(post => post.title.includes(search));
-  //     updatedPosts(filterPosts)
-  //   }
-  // }
 
 
   const handleDelete = async (postIdToDelete) => {
@@ -40,6 +34,9 @@ console.log("userzeeeee data", userData)
 
   return (
     <>
+    <Routes>
+    <Route path="/message" element={<Message postId={postId}/>}></Route>
+    </Routes>
       <div className="posts">
         <h1>Posts</h1>
 
@@ -54,9 +51,11 @@ console.log("userzeeeee data", userData)
           </Link>
           :''}
         </div>
+        {/* {userData.username ? 
         <div className="message-box">
           <Message postId={postId} />
         </div>
+        :''} */}
       </div>
       {posts.map((post, index) => {
 
@@ -68,13 +67,14 @@ console.log("userzeeeee data", userData)
               <p className="post-price">Price: {post.price}</p>
               <p className="post-seller">Seller: {post.author.username}</p>
               <p className="post-location">Location: {post.location}</p>
-              {/* {console.log("username", post.author.username)} */}
             </div>
             {token ? 
             <div className="post-buttons">
+            
               {post.author.username !== userData.username ?
               <button type="submit" className="message-button" onClick={(() => setPostId(post._id))}>Message</button>
               : ''}
+        
               {post.author.username === userData.username ?
               <button type="submit" className="edit-button">Edit</button>
               : ''}

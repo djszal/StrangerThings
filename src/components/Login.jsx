@@ -19,6 +19,7 @@ const Login = () => {
             getMe();
         }
     }, [newToken]);
+    
     return (
         <>
             <div className="login">
