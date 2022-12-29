@@ -3,11 +3,12 @@ import "./Login.css"
 import { loginUser, fetchMe } from "../api/auth";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = (props) => {
     const [usernameLogin, setUsernameLogin] = useState("");
     const [passwordLogin, setPasswordLogin] = useState("");
-    const [token, setToken] = useState(localStorage.getItem("token"));
+    const {token, setToken} = props;
     const navigate = useNavigate();
+
 
 
     return (
@@ -18,7 +19,6 @@ const Login = () => {
                     try {
                         e.preventDefault();
                         const newToken = await loginUser(usernameLogin, passwordLogin);
-                        console.log("this is my new token", newToken)
                         setToken(newToken);
                         localStorage.setItem("token", newToken);
                         { newToken ? (navigate('/')) : console.log("No Token!!") };
@@ -31,7 +31,6 @@ const Login = () => {
                     
                     <button type="submit" >Login</button>
                     
-                    {/* <h3 className="welcome-back">Hello, {newUser.username}</h3> */}
                     <Link to="/register">Don't have an account? Register Here</Link>
                 </form>
             </div>

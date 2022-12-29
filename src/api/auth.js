@@ -22,6 +22,8 @@ export const registerUser = async (username, password) => {
   }
 };
 
+
+
 export const fetchMe = async (token) => {
   try {
     const response = await fetch(`${baseUrl}${cohort}/users/me`, {
@@ -63,7 +65,7 @@ export const createNewPost = async (
       }),
     });
     const data = await response.json();
-    // console.log("new post", data);
+    console.log("new post", data);
     return data;
   } catch (error) {
     console.error(error);

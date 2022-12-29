@@ -1,21 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Link, Route, Routes, Outlet, BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Register from "./Register";
-
-
 import "./Header.css";
 
-const Header = () => {
+const Header = (props) => {
 
-    const [newToken, setToken] = useState(localStorage.getItem("token"));
-
+  const {token, setToken} = props;
     const logout = () => {
         localStorage.removeItem("token");
+        setToken("");
     }
-
-    useEffect(() => {
-
-    }, [newToken]);
 
     return (
         <div className="header">
@@ -23,7 +17,7 @@ const Header = () => {
             <div className="navbar">
                 <Link to={'/'} className="nav-links">Posts</Link>
                 <Link to={'/profile'} className="nav-links">Profile</Link>
-                {!newToken ? (
+                {!token ? (
                     <Link to={'/login'} className="nav-links" >Login</Link>) : (
                     <Link to={'/login'} className="nav-links" onClickCapture={logout}>Logout</Link>)
                 }
