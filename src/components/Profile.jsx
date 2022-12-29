@@ -11,8 +11,9 @@ const Profile = ({pizza, userData}) => {
 
     return (
         <>
-
+            {Object.keys(userData).length !== 0 ?
             <h1>Welcome Back, {userData.username}</h1>
+            : <h2>Please Login to View Profile</h2>}
             <h1>Messages to Me</h1>
             <p>Didn't get to this</p>
             <h1>Messages from Me</h1>
@@ -26,7 +27,7 @@ const Profile = ({pizza, userData}) => {
 
                     </div>
                 </div>
-            )}) : <p>Data</p>}
+            )}) : <p>If seeing this, refesh browser or login</p>} 
         </>
     )
 }

@@ -15,19 +15,24 @@ import Message from "./components/Message";
 
 const App = () => {
 
-  // const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [userData, setUserData] = useState({});
 
+  useEffect(() => {
+    getPosts(setPosts);
+  }, []);
   
 
   useEffect(() => {
+    if(token) {
     const getMe = async () => {
         const data = await fetchMe(token);
         console.log("useryyy data", data)
         setUserData(data)
     }
     getMe()
+  }
     },[])
 
   return (
@@ -37,7 +42,7 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<AllPosts userData={userData}/>}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/newpost" element={<CreateNewPost  />}></Route>
+          <Route path="/newpost" element={<CreateNewPost  posts={posts} setPosts={setPosts}/>}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/profile" element={<Profile pizza={token} userData={userData}/>}></Route>
           <Route path="/message" element={<Message />}></Route>
