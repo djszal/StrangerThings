@@ -24,7 +24,7 @@ const Header = () => {
             <h3>Stranger's Things</h3>
             <div className="navbar">
                 <Link to={'/'} className="nav-links">Posts</Link>
-                <Link to={'/profile'} className="nav-links">Profile</Link>
+                <Link to='/profile' onClick={() => window.reload()} className="nav-links">Profile</Link>
                 {!newToken ? (
                     <Link to={'/login'} className="nav-links">Login</Link>) : (
                     <Link to={'/'} className="nav-links" onClick={logout}>Logout</Link>)

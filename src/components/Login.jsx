@@ -10,15 +10,15 @@ const Login = () => {
     const [newUser, setUser] = useState([]);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const getMe = async () => {
-            const data = await fetchMe(newToken);
-            setUser(data);
-        }
-        if (newToken) {
-            getMe();
-        }
-    }, [newToken]);
+    // useEffect(() => {
+    //     const getMe = async () => {
+    //         const data = await fetchMe(newToken);
+    //         setUser(data);
+    //     }
+    //     if (newToken) {
+    //         getMe();
+    //     }
+    // }, [newToken]);
 
 
     return (
@@ -35,6 +35,7 @@ const Login = () => {
                     } catch (error) {
                         console.error(error);
                     }
+                    location.reload()
                 }}>
                     <input value={usernameLogin} type="text" placeholder="username" minLength={3} onChange={(e) => setUsernameLogin(e.target.value)}></input> 
                     <input value={passwordLogin} type="password" placeholder="password" minLength={3} onChange={(e) => setPasswordLogin(e.target.value)}></input>

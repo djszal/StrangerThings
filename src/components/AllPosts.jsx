@@ -34,6 +34,18 @@ console.log("post ID", postId)
     }
   }
 
+  const handleMessage = (postIdToMessage) => {
+    console.log("message id work?", postIdToMessage)
+    return(
+    <>
+    <Routes>
+    <Route path="/message" element={<Message postId={postId}/>}></Route>
+    </Routes>
+    <Link to="/message"></Link>
+    </>
+    )
+  }
+
   return (
     <>
     <Routes>
@@ -72,11 +84,12 @@ console.log("post ID", postId)
             </div>
             {token ? 
             <div className="post-buttons">
-            
               {post.author.username !== userData.username ?
+              
               <button type="submit" className="message-button" onClick={(() => setPostId(post._id))}>Message</button>
+              // <button type="submit" className="message-button" onClick={(() => handleMessage(post._id))}>Message</button>
+              
               : ''}
-        
               {post.author.username === userData.username ?
               <button type="submit" className="edit-button">Edit</button>
               : ''}
