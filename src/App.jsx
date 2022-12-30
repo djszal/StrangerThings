@@ -41,7 +41,7 @@ const App = () => {
       <div>
         <Routes>
           <Route exact path="/*" element={<AllPosts userData={userData}/>}></Route>
-          <Route path="/login" element={<Login />}></Route>
+          <Route path="/login" element={<Login token={token} setToken={setToken} />}></Route>
           <Route path="/newpost" element={<CreateNewPost  posts={posts} setPosts={setPosts}/>}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/profile" element={<Profile pizza={token} userData={userData}/>}></Route>
@@ -49,10 +49,16 @@ const App = () => {
         </Routes>
       </div>
     </>
+
   );
 
-}
+  }
+
 
 export default App;
 
+/* - This exports to main.jsx. Lots of functionality to go here. useEffects, useStates, call components.  
 
+
+
+*/

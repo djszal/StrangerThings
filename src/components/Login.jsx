@@ -3,11 +3,10 @@ import "./Login.css"
 import { loginUser, fetchMe } from "../api/auth";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = (props) => {
     const [usernameLogin, setUsernameLogin] = useState("");
     const [passwordLogin, setPasswordLogin] = useState("");
-    const [newToken, setToken] = useState(localStorage.getItem("token"));
-    const [newUser, setUser] = useState([]);
+    const {token, setToken} = props;
     const navigate = useNavigate();
 
     // useEffect(() => {
