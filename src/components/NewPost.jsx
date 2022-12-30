@@ -10,7 +10,7 @@ const CreateNewPost = ({ posts, setPosts }) => {
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [location, setLocation] = useState("");
-    const [willDeliver, setDelivery] = useState(Boolean);
+    const [willDeliver, setDelivery] = useState(false);
     const navigate = useNavigate();
     const sameToken = localStorage.getItem("token")
 
@@ -43,10 +43,9 @@ const CreateNewPost = ({ posts, setPosts }) => {
                     <input type="text" name="location" onChange={(e) => setLocation(e.target.value)} />
                 </label>
                 <label>
-                    Willing to Deliver? Won't Create Post if clicked.
-                    <input type="checkbox" name="willDeliver" checked={willDeliver}onChange={(e) => setDelivery(e.target.value)} />
+                    Willing to Deliver?
+                    <input type="checkbox" name="willDeliver" checked={willDeliver} onChange={(e) => setDelivery( (prev) => !prev)} />
                 </label>
-                    <p>The checkbox is {willDeliver ? "checked" : "unchecked"}</p>
                 <button type="submit" className="create-new-post-button">Create New Post</button>
             </form>
         </>

@@ -12,9 +12,7 @@ const AllPosts = ({userData}) => {
   const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState("")
   const [postId, setPostId] = useState("")
-  
-// console.log("posts", posts)
-// console.log("userzeeeee data", userData)
+
 console.log("post ID", postId)
   useEffect(() => {
     getPosts(setPosts);
@@ -25,9 +23,9 @@ console.log("post ID", postId)
 
 
   const handleDelete = async (postIdToDelete) => {
-    // console.log('yoooo', postIdToDelete); 
+
     const response = await deletePost(token, postIdToDelete)
-    // console.log("heyyyyyy ", response)
+
     if (response) {
       const newPosts = posts.filter(post => post._id !== postIdToDelete);
       updatedPosts(newPosts)
@@ -69,7 +67,7 @@ console.log("post ID", postId)
               <p className="post-price">Price: {post.price}</p>
               <p className="post-seller">Seller: {post.author.username}</p>
               <p className="post-location">Location: {post.location}</p>
-              <p className="post-deliver">Deliver: {post.willDeliver}</p>
+              <p className="post-deliver">Deliver: {post.willDeliver ? "Delivery" : "Pick-Up"}</p>
             </div>
             {token ? 
             <div className="post-buttons">

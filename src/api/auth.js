@@ -60,8 +60,8 @@ export const createNewPost = async (
           title,
           description,
           price,
-          willDeliver,
           location,
+          willDeliver,
         },
       }),
     });

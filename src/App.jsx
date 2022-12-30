@@ -12,10 +12,6 @@ import Profile from "./components/Profile";
 import Message from "./components/Message";
 
 
-// const logOut = () => {
-//   localStorage.removeItem("token");
-// }
-
 const App = () => {
 
   const [posts, setPosts] = useState([]);
