@@ -51,11 +51,11 @@ console.log("post ID", postId)
           </Link>
           :''}
         </div>
-        {/* {userData.username ? 
+        {userData.username ? 
         <div className="message-box">
           <Message postId={postId} />
         </div>
-        :''} */}
+        :''}
       </div>
       {posts.map((post, index) => {
 
