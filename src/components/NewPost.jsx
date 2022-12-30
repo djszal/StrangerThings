@@ -44,8 +44,9 @@ const CreateNewPost = ({ posts, setPosts }) => {
                 </label>
                 <label>
                     Willing to Deliver? Won't Create Post if clicked.
-                    <input type="checkbox" name="name" onChange={(e) => setDelivery(e.target.value)} />
+                    <input type="checkbox" name="willDeliver" checked={willDeliver}onChange={(e) => setDelivery(e.target.value)} />
                 </label>
+                    <p>The checkbox is {willDeliver ? "checked" : "unchecked"}</p>
                 <button type="submit" className="create-new-post-button">Create New Post</button>
             </form>
         </>

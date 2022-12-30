@@ -12,7 +12,7 @@ const AllPosts = ({userData}) => {
   const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState("")
   const [postId, setPostId] = useState("")
-
+  
 // console.log("posts", posts)
 // console.log("userzeeeee data", userData)
 console.log("post ID", postId)
@@ -69,6 +69,7 @@ console.log("post ID", postId)
               <p className="post-price">Price: {post.price}</p>
               <p className="post-seller">Seller: {post.author.username}</p>
               <p className="post-location">Location: {post.location}</p>
+              <p className="post-deliver">Deliver: {post.willDeliver}</p>
             </div>
             {token ? 
             <div className="post-buttons">
