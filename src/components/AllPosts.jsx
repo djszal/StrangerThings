@@ -25,7 +25,9 @@ console.log("post ID", postId)
 
 
   const handleDelete = async (postIdToDelete) => {
+    // console.log('yoooo', postIdToDelete); 
     const response = await deletePost(token, postIdToDelete)
+    // console.log("heyyyyyy ", response)
     if (response) {
       const newPosts = posts.filter(post => post._id !== postIdToDelete);
       updatedPosts(newPosts)
@@ -90,6 +92,7 @@ console.log("post ID", postId)
   )
 
 }
+
 
 
 export default AllPosts;

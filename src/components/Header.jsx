@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Link, Route, Routes, Outlet, BrowserRouter, useNavigate } from 'react-router-dom';
+import { Link, Route, Routes, Outlet, BrowserRouter } from 'react-router-dom';
+import Register from "./Register";
+
+
 import "./Header.css";
 
 const Header = () => {
 
     const [newToken, setToken] = useState(localStorage.getItem("token"));
-    const navigate = useNavigate();
 
     const logout = () => {
         localStorage.removeItem("token");
         console.log("User is logged out")
         navigate("/")
     }
+
+    useEffect(() => {
+
+    }, [newToken]);
 
     return (
         <div className="header">

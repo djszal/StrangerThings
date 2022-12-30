@@ -19,7 +19,8 @@ const Login = () => {
             getMe();
         }
     }, [newToken]);
-    
+
+
     return (
         <>
             <div className="login">
@@ -28,14 +29,14 @@ const Login = () => {
                     try {
                         e.preventDefault();
                         const newToken = await loginUser(usernameLogin, passwordLogin);
-                        setToken(newToken)
+                        setToken(newToken);
                         localStorage.setItem("token", newToken);
                         { newToken ? (navigate('/')) : console.log("No Token!!") };
                     } catch (error) {
                         console.error(error);
                     }
                 }}>
-                    <input value={usernameLogin} type="text" placeholder="username" minLength={3} onChange={(e) => setUsernameLogin(e.target.value)}></input>
+                    <input value={usernameLogin} type="text" placeholder="username" minLength={3} onChange={(e) => setUsernameLogin(e.target.value)}></input> 
                     <input value={passwordLogin} type="password" placeholder="password" minLength={3} onChange={(e) => setPasswordLogin(e.target.value)}></input>
                     <button type="submit">Login</button>
                     <Link to="/register">Don't have an account? Register Here</Link>
