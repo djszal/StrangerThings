@@ -72,7 +72,6 @@ const AllPosts = ({userData}) => {
               {post.author.username !== userData.username ?
               
               <button type="submit" className="message-button" onClick={(() => setPostId(post._id))}>Message</button>
-              // <button type="submit" className="message-button" onClick={(() => handleMessage(post._id))}>Message</button>
               
               : ''}
               {post.author.username === userData.username ?

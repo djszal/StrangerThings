@@ -33,7 +33,6 @@ export const fetchMe = async (token) => {
       },
     });
     const { data } = await response.json();
-    console.log("userssss datazzz", data.messages);
     return data;
   } catch (error) {
     console.error(error);
@@ -66,7 +65,6 @@ export const createNewPost = async (
       }),
     });
     const data = await response.json();
-    console.log("new post", data);
     return data;
   } catch (error) {
     console.error(error);
@@ -131,7 +129,6 @@ export const messageUser = async (postId, content, token) => {
       }
     );
     const reply = await response.json();
-    console.log("message response", reply);
     return reply;
   } catch (error) {
     console.error(error);
