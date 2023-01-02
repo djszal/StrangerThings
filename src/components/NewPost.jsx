@@ -44,7 +44,7 @@ const CreateNewPost = ({ posts, setPosts }) => {
                 </label>
                 <label>
                     Willing to Deliver?
-                    <input type="checkbox" name="willDeliver" checked={willDeliver} onChange={(e) => setDelivery( (prev) => !prev)} />
+                    <input type="checkbox" name="willDeliver" checked={willDeliver} onChange={(e) => setDelivery((prev) => !prev)} />
                 </label>
                 <button type="submit" className="create-new-post-button">Create New Post</button>
             </form>
