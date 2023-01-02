@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
-import Register from "./Register";
 import "./Header.css";
-
 const Header = (props) => {
-
   const {token, setToken} = props;
     const logout = () => {
         localStorage.removeItem("token");
         setToken("");
     }
-
     return (
         <div className="header">
             <h3>Stranger's Things</h3>
@@ -25,6 +21,19 @@ const Header = (props) => {
         </div>
     );
 }
-
-
 export default Header;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

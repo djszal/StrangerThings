@@ -12,6 +12,7 @@ import Profile from "./components/Profile";
 import Message from "./components/Message";
 
 
+
 const App = () => {
 
   const [posts, setPosts] = useState([]);
@@ -27,7 +28,6 @@ const App = () => {
     if(token) {
     const getMe = async () => {
         const data = await fetchMe(token);
-        console.log("useryyy data", data)
         setUserData(data)
     }
     getMe()
@@ -43,7 +43,7 @@ const App = () => {
           <Route path="/login" element={<Login token={token} setToken={setToken} />}></Route>
           <Route path="/newpost" element={<CreateNewPost posts={posts} setPosts={setPosts}/>}></Route>
           <Route path="/register" element={<Register />}></Route>
-          <Route path="/profile" element={<Profile pizza={token} userData={userData}/>}></Route>
+          <Route path="/profile" element={<Profile userData={userData}/>}></Route>
           <Route path="/message" element={<Message />}></Route>
         </Routes>
       </div>

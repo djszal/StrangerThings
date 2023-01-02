@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { deletePost, fetchMe } from "../api/auth";
+import { deletePost} from "../api/auth";
 import Message from "./Message";
 import "./AllPosts.css";
 import { getPosts } from "../api/api";
@@ -13,12 +13,9 @@ const AllPosts = ({userData}) => {
   const [search, setSearch] = useState("")
   const [postId, setPostId] = useState("")
 
-console.log("post ID", postId)
   useEffect(() => {
     getPosts(setPosts);
   }, [updated]);
-
-  
 
 
 
@@ -31,6 +28,7 @@ console.log("post ID", postId)
       updatedPosts(newPosts)
     }
   }
+
 
   return (
     <>
@@ -51,11 +49,11 @@ console.log("post ID", postId)
           </Link>
           :''}
         </div>
-        {/* {userData.username ? 
+        {userData.username ? 
         <div className="message-box">
           <Message postId={postId} />
         </div>
-        :''} */}
+        :''}
       </div>
       {posts.map((post, index) => {
 
@@ -71,11 +69,12 @@ console.log("post ID", postId)
             </div>
             {token ? 
             <div className="post-buttons">
-            
               {post.author.username !== userData.username ?
+              
               <button type="submit" className="message-button" onClick={(() => setPostId(post._id))}>Message</button>
+              // <button type="submit" className="message-button" onClick={(() => handleMessage(post._id))}>Message</button>
+              
               : ''}
-        
               {post.author.username === userData.username ?
               <button type="submit" className="edit-button">Edit</button>
               : ''}

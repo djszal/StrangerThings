@@ -1,14 +1,8 @@
 import React from "react"
-import { useState, useEffect } from "react"
-import { messageUser, fetchMe } from "../api/auth";
 import "./Profile.css"
 
-const Profile = ({pizza, userData}) => {
-    // console.log("token", pizza)
-    // const [userData, setUserData] = useState({});
-    console.log("Profile Data", userData.messages)
+const Profile = ({userData}) => {
     
-
     return (
         <>
             {Object.keys(userData).length !== 0 ?
@@ -27,11 +21,10 @@ const Profile = ({pizza, userData}) => {
                         </div>
                         : ""}
                     </div>
-                )}) : <p>If seeing this, refesh browser or login</p>}
+                )}) : ''}
             <h1>Messages from Me</h1>
             {Object.keys(userData).length !== 0 ?
             userData.messages.map((message, index) => {
-                {console.log("message", message.fromUser.username)}
             return (
                 <div className="message-block" key={index}>
                 {message.fromUser.username === userData.username ? 
@@ -41,7 +34,7 @@ const Profile = ({pizza, userData}) => {
                     </div>
                     : ""}
                 </div>
-            )}) : <p>If seeing this, refesh browser or login</p>} 
+            )}) : ''} 
         </>
     )
 }

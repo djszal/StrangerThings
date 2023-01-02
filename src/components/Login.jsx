@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Login.css"
-import { loginUser, fetchMe } from "../api/auth";
+import { loginUser} from "../api/auth";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = (props) => {
@@ -8,7 +8,6 @@ const Login = (props) => {
     const [passwordLogin, setPasswordLogin] = useState("");
     const {token, setToken} = props;
     const navigate = useNavigate();
-
 
 
     return (
@@ -25,6 +24,7 @@ const Login = (props) => {
                     } catch (error) {
                         console.error(error);
                     }
+                    location.reload()
                 }}>
                     <input value={usernameLogin} type="text" placeholder="username" minLength={3} onChange={(e) => setUsernameLogin(e.target.value)}></input> 
                     <input value={passwordLogin} type="password" placeholder="password" minLength={3} onChange={(e) => setPasswordLogin(e.target.value)}></input>
