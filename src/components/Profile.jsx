@@ -27,7 +27,7 @@ const Profile = ({pizza, userData}) => {
                         </div>
                         : ""}
                     </div>
-                )}) : <p>If seeing this, refesh browser or login</p>}
+                )}) : ''}
             <h1>Messages from Me</h1>
             {Object.keys(userData).length !== 0 ?
             userData.messages.map((message, index) => {
@@ -41,7 +41,7 @@ const Profile = ({pizza, userData}) => {
                     </div>
                     : ""}
                 </div>
-            )}) : <p>If seeing this, refesh browser or login</p>} 
+            )}) : ''} 
         </>
     )
 }
