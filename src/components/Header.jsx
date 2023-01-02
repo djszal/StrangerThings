@@ -1,31 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
-import Register from "./Register";
 import "./Header.css";
-
 const Header = (props) => {
-
-    const [newToken, setToken] = useState(localStorage.getItem("token"));
+  const {token, setToken} = props;
     const logout = () => {
         localStorage.removeItem("token");
-        console.log("User is logged out")
-        navigate("/")
+        setToken("");
     }
-
     return (
         <div className="header">
             <h3>Stranger's Things</h3>
             <div className="navbar">
                 <Link to={'/'} className="nav-links">Posts</Link>
-                <Link to='/profile' onClick={() => window.reload()} className="nav-links">Profile</Link>
-                {!newToken ? (
-                    <Link to={'/login'} className="nav-links">Login</Link>) : (
-                    <Link to={'/'} className="nav-links" onClick={logout}>Logout</Link>)
+                <Link to={'/profile'} className="nav-links">Profile</Link>
+                {!token ? (
+                    <Link to={'/login'} className="nav-links" >Login</Link>) : (
+                    <Link to={'/login'} className="nav-links" onClickCapture={logout}>Logout</Link>)
                 }
             </div>
         </div>
     );
 }
-
-
 export default Header;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

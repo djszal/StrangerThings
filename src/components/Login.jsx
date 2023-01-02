@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Login.css"
-import { loginUser, fetchMe } from "../api/auth";
+import { loginUser} from "../api/auth";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = (props) => {
@@ -8,16 +8,6 @@ const Login = (props) => {
     const [passwordLogin, setPasswordLogin] = useState("");
     const {token, setToken} = props;
     const navigate = useNavigate();
-
-    // useEffect(() => {
-    //     const getMe = async () => {
-    //         const data = await fetchMe(newToken);
-    //         setUser(data);
-    //     }
-    //     if (newToken) {
-    //         getMe();
-    //     }
-    // }, [newToken]);
 
 
     return (

@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 const CreateNewPost = ({ posts, setPosts }) => {
 
-    console.log("looking for posts", posts)
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
@@ -21,7 +20,6 @@ const CreateNewPost = ({ posts, setPosts }) => {
                 e.preventDefault();
                 const result = await createNewPost(sameToken, title, description, price, location, willDeliver);
                 const data = await result.data
-                console.log("new post data", data)
                 setPosts([data, ...posts]);
                 navigate('/');
             }

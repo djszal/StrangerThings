@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { deletePost, fetchMe } from "../api/auth";
+import { deletePost} from "../api/auth";
 import Message from "./Message";
 import "./AllPosts.css";
 import { getPosts } from "../api/api";
@@ -13,12 +13,9 @@ const AllPosts = ({userData}) => {
   const [search, setSearch] = useState("")
   const [postId, setPostId] = useState("")
 
-console.log("post ID", postId)
   useEffect(() => {
     getPosts(setPosts);
   }, [updated]);
-
-  
 
 
 
@@ -32,17 +29,6 @@ console.log("post ID", postId)
     }
   }
 
-  const handleMessage = (postIdToMessage) => {
-    console.log("message id work?", postIdToMessage)
-    return(
-    <>
-    <Routes>
-    <Route path="/message" element={<Message postId={postId}/>}></Route>
-    </Routes>
-    <Link to="/message"></Link>
-    </>
-    )
-  }
 
   return (
     <>
